@@ -14,9 +14,7 @@ public class HomePage extends BasePage{
 	private By newPasswordTextField = By.id("newPwd");
 	private By errorMessage = By.id("errorMessage");
 	
-	public void clickOnLoginButton() {
-		clickOn(loginButton);
-	}
+	public void clickOnLoginButton() {clickOn(loginButton);}
 
 	public void enterEmail(String enterEmail) {
 		sendText(emailTextField, enterEmail);
@@ -45,11 +43,6 @@ public class HomePage extends BasePage{
 	public String getErrorMessage() {
 		return getTextFromElement(errorMessage);
 	}
-
-
-
-
-
 
 
 }

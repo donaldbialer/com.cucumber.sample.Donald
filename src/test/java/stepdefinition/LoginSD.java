@@ -74,13 +74,4 @@ public class LoginSD {
     public void verifySignUpErrorMessage() {
         Assert.assertEquals(homePage.getErrorMessage(), "Invalid signup");
     }
-
-    @Test
-    public boolean sampleCode() {
-        //TODO: delete this code
-        if ("name".isEmpty()) {
-            return true;
-        }
-        return false;
-    }
 }

@@ -12,6 +12,8 @@ public class ConfigReader {
 
     private String url;
     private String chromeDriverPath;
+    private String browser;
+
 
     public ConfigReader() {
 
@@ -28,6 +30,7 @@ public class ConfigReader {
             // get the property value and print it out
             this.url = prop.getProperty("url");
             this.chromeDriverPath = prop.getProperty("chrome_driver_path");
+            this.browser = prop.getProperty("browser");//indicate browser property
 
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -50,5 +53,9 @@ public class ConfigReader {
     public String getChromeDriverPath() {
 
         return chromeDriverPath;
+    }
+
+    public String getBrowser() {
+        return browser;
     }
 }

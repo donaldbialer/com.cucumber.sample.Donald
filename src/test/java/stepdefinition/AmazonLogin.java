@@ -36,10 +36,10 @@ public class AmazonLogin {
         amazonHomePage.invalidEmailAddress(email);
     }
 
-    @And("^I enter (BadPassword) for invalid password$")
-    public void invalidEmailPassword(String password) {
-        amazonHomePage.invalidPassword(password);
-    }
+//  @And("^I enter (BadPassword) for invalid password$")
+//    public void invalidEmailPassword(String password) {
+//        amazonHomePage.invalidPassword(password);
+//    }
 
     @And("^I click on continue button$")
     public void clickSignIn() {
@@ -48,7 +48,8 @@ public class AmazonLogin {
 
     @Then("^I verify invalid error message$")
     public void verifyInvalidMessage() {
-        String actualError = SharedSD.getDriver().findElement(By.xpath("//*[@id=\"auth-error-message-box\"]/div/div/ul/li/span")).getText();
+        String actualError = amazonHomePage.getWarningMessage();
+        //String actualError = SharedSD.getDriver().findElement(By.xpath("//*[@id=\"auth-error-message-box\"]/div/div/ul/li/span")).getText();
         Assert.assertEquals(actualError, "We cannot find an account with that email address");
     }
 }

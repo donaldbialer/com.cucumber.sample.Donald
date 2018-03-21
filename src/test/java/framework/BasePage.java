@@ -7,6 +7,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import stepdefinition.SharedSD;
 
+import java.util.List;
+
 /**
  * Created by mohammadmuntakim on 6/9/17.
  */
@@ -69,5 +71,17 @@ public class BasePage extends SharedSD {
 	public void setValueToInputField(By locator, String value) {
 		SharedSD.getDriver().findElement(locator).sendKeys(value);
 
+	}
+
+	//auto complete command
+	public void autoComplete(By locator, By locator2, String searchKey, String choice) {
+		SharedSD.getDriver().findElement(locator).sendKeys(searchKey);
+		List<WebElement> list = SharedSD.getDriver().findElements(locator2);
+		for (WebElement element : list) {
+			if (element.getText().contains(choice)) {
+				element.click();
+				break;
+			}
+		}
 	}
 }
